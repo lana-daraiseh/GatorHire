@@ -19,11 +19,8 @@ Normalizes dates, splits sections, and outputs both JSONL and CSV for analysis.
 ## Installation
 
 ### 1. Clone this repository
-git clone https://github.com/yourusername/resume-parser.git
-cd resume-parser
 
 ### 2. Install Python dependencies
-pip install -r requirements.txt
 
 Minimal requirements:
 pymupdf
