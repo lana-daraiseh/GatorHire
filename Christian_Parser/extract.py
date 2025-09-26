@@ -79,6 +79,7 @@ def extract_resume_structure(text: str) -> Dict:
 
 
 # test
+"""
 if __name__ == "__main__":
     from tempParser import parse_resume 
 
@@ -88,3 +89,4 @@ if __name__ == "__main__":
 
     import json
     print(json.dumps(structured, indent=2))
+"""
