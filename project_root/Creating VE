@@ -1,0 +1,31 @@
+# Setting Up the Virtual Environment on Windows (VS Code Method)
+
+A virtual environment keeps this project’s Python packages isolated from your system installation. Follow these steps to create and activate it using **Visual Studio Code** with **PowerShell**.
+
+1. Open the project folder in **Visual Studio Code**.  
+2. Make sure the **Python** extension (by Microsoft) is installed.  
+3. Open the **Command Palette** with `Ctrl + Shift + P`.  
+4. Type and select `Python: Create Environment`.  
+5. Choose:  
+   - **Environment type:** `venv`  
+   - **Base interpreter:** your installed `Python 3.x`  
+6. VS Code will automatically create a folder called `env` in your project directory, select it as your interpreter, and attempt to activate it.  
+7. If it does **not** activate automatically, open a new PowerShell terminal in VS Code and run:  
+   `.\\env\\Scripts\\Activate.ps1`  
+8. If PowerShell blocks the script with an execution policy error, allow scripts by running this once:  
+   `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser`  
+9. After activation, your terminal prompt should start with `(env)`:  
+   `(env) PS C:\\Users\\YourName\\Projects\\ResumeDashboard>`  
+10. To install project dependencies while the environment is active, run:  
+    `pip install flask pandas scikit-learn python-slugify pdfplumber docx2txt tqdm PyPDF2 ollama`  
+11. Verify installation with:  
+    `pip list`  
+    You should see packages such as Flask, pandas, scikit-learn, PyPDF2, and ollama.  
+12. When finished working, deactivate the environment with:  
+    `deactivate`  
+13. To reactivate it later, use:  
+    `.\\env\\Scripts\\Activate.ps1`  
+14. Once your environment is active and dependencies are installed, start the app:  
+    `python app.py`  
+15. Open your browser and go to:  
+    `http://127.0.0.1:5000`
