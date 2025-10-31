@@ -1,10 +1,14 @@
 To run the code first make sure you install all required libraries
 
-**Required Libraries**:  
+**Required Libraries and Packages**:  
 sklearn    
 pandas  
 numpy   
 matplotlib   
 streamlit   
-PyMuPDF   
-seaborn
+pymupdf  
+pdfplumber  
+pypdf  
+seaborn  
+fitz    
+display
