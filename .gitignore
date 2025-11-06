@@ -1,0 +1,9 @@
+__pycache__/
+*.pyc
+
+*.log
+
+Merged_Survey_Data_Aman.xlsx
+parsed_resumes*.csv
+
+.ipynb_checkpoints/
