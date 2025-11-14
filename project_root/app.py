@@ -714,7 +714,7 @@ def analyze_upload():
     }
     msg = "\n".join([
         f"📊 Cluster: {cl}",
-        f"💡 Advice: {advice}",
+        f"💡 Advice: ",
         (
                 "⚠️ Missing core skills:\n" +
                 "\n".join(f"   • {s}" for s in missing_core[:5])
