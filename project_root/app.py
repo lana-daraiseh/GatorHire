@@ -161,7 +161,9 @@ TEMPLATE = r"""
     </form>
 
     {% if message %}
-      <div class="card">{{ message }}</div>
+      <div class="card">
+            <pre>{{ message | safe }}</pre>
+      </div>
     {% endif %}
 
     {% if parsed_rows > 0 %}
@@ -710,11 +712,23 @@ def analyze_upload():
             "email": parsed.get("email") or (parsed.get("contact", {}) or {}).get("email", ""),
         }
     }
+    msg = "\n".join([
+        f"📊 Cluster: {cl}",
+        f"💡 Advice: {advice}",
+        (
+                "⚠️ Missing core skills:\n" +
+                "\n".join(f"   • {s}" for s in missing_core[:5])
+        ) if missing_core else "",
+        f"🎯 Role match score: {role_score}" if role_score is not None else "",
+        f"💼 Suggested roles: {', '.join(likely_titles[:3]) if likely_titles else 'N/A'}",
+        f"🏷️ Likely titles: {likely_titles}",
+        f"📇 Parsed contact: {parsed.get('contact', {}).get('name', '')}",
+    ]).strip()
 
-    msg = (f"Analyzed upload. Cluster = {cl}. " +                      # summary message
-           (f"Role match score = {role_score}. " if role_score is not None else "") +
-           f"Suggested roles: {', '.join(likely_titles[:3]) if likely_titles else 'N/A'}. " +
-           (f"Missing core skills: {', '.join(missing_core[:5])}." if missing_core else ""))
+    #msg = (f"Analyzed upload. Cluster = {cl}. \n" +                       # summary message
+           #(f"Role match score = {role_score}. " if role_score is not None else "") +
+          # f"Suggested roles: {', '.join(likely_titles[:3]) if likely_titles else 'N/A'}. \n" +
+           #(f"Missing core skills: {', '.join(missing_core[:5])}." if missing_core else ""))
 
     return render_template_string(  # render dashboard with feedback blob
         TEMPLATE.replace("<div class=\"card\">{{ message }}</div>",
