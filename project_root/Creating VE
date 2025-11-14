@@ -1,8 +1,8 @@
 # Setting Up the Virtual Environment on Windows (VS Code Method)
 
-A virtual environment keeps this project’s Python packages isolated from your system installation. Follow these steps to create and activate it using **Visual Studio Code** with **PowerShell**.
+A virtual environment keeps this project’s Python packages isolated from your system installation. Follow these steps to create and activate it using Visual Studio Code with PowerShell.
 
-1. Open the project folder in **Visual Studio Code**.  
+1. Open the project folder in Visual Studio Code.  
 2. Make sure the **Python** extension (by Microsoft) is installed.  
 3. Open the **Command Palette** with `Ctrl + Shift + P`.  
 4. Type and select `Python: Create Environment`.  
@@ -10,7 +10,7 @@ A virtual environment keeps this project’s Python packages isolated from your 
    - Environment type: `venv`  
    - Base interpreter: your installed `Python 3.x`  
 6. VS Code will automatically create a folder called `env` in your project directory, select it as your interpreter, and attempt to activate it.  
-7. If it does **not** activate automatically, open a new PowerShell terminal in VS Code and run:  
+7. If it does not activate automatically, open a new PowerShell terminal in VS Code and run:  
    `.\\env\\Scripts\\Activate.ps1`  
 8. If PowerShell blocks the script with an execution policy error, allow scripts by running this once:  
    `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser`  
