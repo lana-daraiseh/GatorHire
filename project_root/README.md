@@ -13,7 +13,7 @@ A Flask-based dashboard that parses and analyzes resumes using Ollama and machin
 ## Project Structure
 project_root/
 │
-├── app.py                   # Main Flask app
+├── app_v2.py                   # Main Flask app
 ├── Resumes/		     # Folder containing Resumes to be parsed
 ├── resume_batch_parser.py   # Handles batch parsing and CSV export
 ├── textExtractor.py            # Extracts text from PDF or DOCX files
@@ -61,6 +61,11 @@ project_root/
 
 7. Add Key to resume_batch_parser.py:
    - Copy key and add it to api_key="" near the top of the file
+
+8. Changing parsing
+   - The API call is default, if you want to run a model locally follow:
+        - In app_v2, switch resume_batch_parser with parser2 in this line:
+        - from resume_batch_parser import batch_parse_resumes, process_resume
 
 ## Running the Application
 
@@ -200,6 +205,7 @@ pip install -r requirements.txt
 - Add database support (SQLite or DuckDB)
 - Add job title classification and keyword matching
 - Support multiple local or remote LLM backends
+
 
 
 
