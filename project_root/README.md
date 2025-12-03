@@ -49,6 +49,19 @@ project_root/
 
    If you see a response, the model is ready. If memory errors occur, use a smaller model like gemma2:2b.
 
+6. Get API Key:
+   - Go to https://ai.ufl.edu/teaching-with-ai/for-uf-faculty/navigator/
+   - Scroll down till you see "Get Started With NaviGator"
+   - Click on Navigator Toolkit
+   - In the tab Virtual Keys, click "Create New Key"
+   - For team choose: navigator-toolkit
+   - Name the key
+   - For models choose: gemma-3-27b-it
+   - Create Key
+
+7. Add Key to resume_batch_parser.py:
+   - Copy key and add it to api_key="" near the top of the file
+
 ## Running the Application
 
 1. Ensure the Ollama server is running (ollama serve).
@@ -187,5 +200,6 @@ pip install -r requirements.txt
 - Add database support (SQLite or DuckDB)
 - Add job title classification and keyword matching
 - Support multiple local or remote LLM backends
+
 
 
