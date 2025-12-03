@@ -7,6 +7,14 @@ import logging
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from tqdm import tqdm
 from textExtractor import parse_resume
+import openai
+
+# ---------- Ollama Client Setup ----------
+client = openai.OpenAI(
+	#Follow readme to get api key from NaviGator
+    api_key="",
+	base_url="https://api.ai.it.ufl.edu"
+)
 
 
 # ---------- Setup Logging ----------
@@ -50,8 +58,9 @@ def extract_resume_with_ollama(resume_text: str, model: str = "gemma3:12b", max_
 
     for attempt in range(1, max_retries + 1):
         try:
-            response = ollama.chat(model=model, messages=[{"role": "user", "content": prompt_template}])
-            raw_output = response.message.content.strip()
+            prompt = [{'role': 'user', 'content': prompt_template}]
+            response = client.responses.create(model = "gemma-3-27b-it", input = prompt)
+            raw_output = response.output_text.strip()
 
             # Remove markdown if needed
             raw_output = re.sub(r"^```(?:json)?|```$", "", raw_output, flags=re.MULTILINE).strip()
@@ -146,9 +155,15 @@ def batch_parse_resumes(folder_path: str, output_csv: str, log_file: str = "pars
 
 # ---------- Run ----------
 if __name__ == "__main__":
-    folder_path = "Resumes"
+    """
+    BATCH PROCESSING EXAMPLE USAGE:
+    folder_path = "resumes"
     output_csv = "parsed_resumes.csv"
     log_file = "parser_log.log"
 
-    batch_parse_resumes(folder_path, output_csv, log_file, limit=20, max_workers=5)
-
+    batch_parse_resumes(folder_path, output_csv, log_file, limit=20, max_workers=5) # Adjust limit and workers as needed
+    
+    SINGLE FILE PROCESSING EXAMPLE USAGE:
+    ollama_structured = process_resume("Your_Resume_File.pdf")
+    print(json.dumps(ollama_structured, indent=2, ensure_ascii=False)) # Print the structured data
+    """
