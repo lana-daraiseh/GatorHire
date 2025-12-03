@@ -16,7 +16,7 @@ project_root/
 ├── app.py                   # Main Flask app
 ├── Resumes/		     # Folder containing Resumes to be parsed
 ├── resume_batch_parser.py   # Handles batch parsing and CSV export
-├── tempParser.py            # Extracts text from PDF or DOCX files
+├── textExtractor.py            # Extracts text from PDF or DOCX files
 ├── parsed_resumes.csv       # Output CSV (created after parsing)
 ├── parser_log.log           # Log file
 ├── env/                     # Virtual environment
@@ -187,3 +187,4 @@ pip install -r requirements.txt
 - Add database support (SQLite or DuckDB)
 - Add job title classification and keyword matching
 - Support multiple local or remote LLM backends
+
