@@ -6,7 +6,7 @@ import os
 import logging
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from tqdm import tqdm
-from tempParser import parse_resume
+from textExtractor import parse_resume
 
 
 # ---------- Setup Logging ----------
@@ -151,3 +151,4 @@ if __name__ == "__main__":
     log_file = "parser_log.log"
 
     batch_parse_resumes(folder_path, output_csv, log_file, limit=20, max_workers=5)
+
