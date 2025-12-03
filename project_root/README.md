@@ -32,7 +32,7 @@ project_root/
 2. Install required Python packages:
    pip install flask pandas scikit-learn python-slugify pdfplumber docx2txt tqdm PyPDF2
 
-3. Install and verify Ollama:
+3. Install and verify Ollama (Can skip 3-5 if using API key):
    - Download from: https://ollama.com/download
    - Open a new PowerShell window and verify:
      ollama --version
@@ -187,4 +187,5 @@ pip install -r requirements.txt
 - Add database support (SQLite or DuckDB)
 - Add job title classification and keyword matching
 - Support multiple local or remote LLM backends
+
 
